@@ -1,0 +1,413 @@
+Notepad
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff4d88,#ff7eb3,#ffb6c1,#ffd6e7);
+background-size:400% 400%;
+animation:fondo 15s ease infinite;
+color:white;
+}
+
+@keyframes fondo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* 💌 INICIO */
+#inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.sobre{
+font-size:180px;
+cursor:pointer;
+animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+#inicio h1{
+font-size:4rem;
+margin-top:15px;
+}
+
+/* 📖 LIBRO */
+#libro{
+display:none;
+width:100%;
+height:100vh;
+position:relative;
+perspective:3000px;
+}
+
+.pagina{
+position:absolute;
+width:100%;
+height:100%;
+padding:60px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+
+transform-origin:left center;
+
+opacity:0;
+transform:rotateY(-90deg);
+transition:1s;
+}
+
+.pagina.activa{
+opacity:1;
+transform:rotateY(0deg);
+}
+
+h2{
+font-size:3rem;
+margin-bottom:25px;
+}
+
+.texto{
+max-width:900px;
+font-size:1.4rem;
+line-height:2;
+min-height:300px;
+white-space:pre-line;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-weight:bold;
+background:white;
+color:#ff4d88;
+margin-top:20px;
+}
+
+/* 💖 corazones */
+.corazon{
+position:absolute;
+pointer-events:none;
+animation:subir 8s linear forwards;
+}
+
+@keyframes subir{
+from{transform:translateY(100vh);opacity:0;}
+20%{opacity:1;}
+to{transform:translateY(-150px);opacity:0;}
+}
+
+.final{
+font-size:7rem;
+animation:latido 1s infinite;
+}
+
+/* 💥 PANTALLA FINAL */
+#final{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:radial-gradient(circle,#ff4d88,#000);
+text-align:center;
+animation:showFinal 1.5s ease;
+}
+
+@keyframes showFinal{
+from{opacity:0;transform:scale(1.3);}
+to{opacity:1;transform:scale(1);}
+}
+
+#final h1{
+font-size:6.5rem;
+text-shadow:0 0 40px #fff, 0 0 80px #ff4d88;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+#final p{
+font-size:1.5rem;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+<source src="Mon Laferte - Antes De Ti (Video Oficial).mp3" type="audio/mpeg">
+</audio>
+
+<!-- 💌 INICIO -->
+<div id="inicio">
+<div class="sobre" onclick="abrirLibro()">💌</div>
+<h1>Para Michelle ❤️</h1>
+<p>Haz clic en el sobre</p>
+</div>
+
+<!-- 📖 LIBRO -->
+<div id="libro">
+
+<div class="pagina activa">
+<h2>❤️ Michelle ❤️</h2>
+<div class="texto" data-texto="Desde que te conocí, empecé a ver las cosas de una manera diferente.
+
+No porque todo haya cambiado de golpe, sino porque contigo las cosas pequeñas empezaron a tener más significado.
+
+Una conversación contigo puede cambiar completamente mi día, incluso cuando todo lo demás parece normal. A veces me quedo pensando en lo simple que es hablar contigo, pero lo mucho que me hace sentir.
+
+Y eso, sin duda, es algo que valoro más de lo que imaginas.."></div>
+<button onclick="siguiente()">Siguiente ➜</button>
+</div>
+
+<div class="pagina">
+<h2>✨ Lo que me gusta de ti ✨</h2>
+<div class="texto" data-texto="Me gusta de ti muchas cosas, pero si tuviera que empezar por algo, sería tu forma de ser. Hay algo en ti que se siente único, como si tu presencia cambiara el ambiente sin que tengas que hacer demasiado.
+
+Me gusta cómo piensas, cómo ves el mundo, incluso en los días simples o en los difíciles. Tienes una manera de existir que se siente auténtica, sin intentar encajar en moldes que no te quedan.
+
+Me gusta tu sonrisa, porque aunque a veces no te des cuenta, puede iluminar momentos que parecían normales o apagados. Y tus ojos… dicen más de lo que las palabras alcanzan a explicar.
+
+Me gusta cómo eres cuando te emocionas por algo, cuando hablas de lo que te importa, cuando te ríes sin pensar demasiado. Esos pequeños momentos son los que hacen que todo valga la pena.
+
+Pero sobre todo, me gusta la forma en que haces sentir a los demás cuando estás cerca. Hay personas que simplemente están, y hay otras que dejan huella… tú eres de esas.
+
+Y si lo digo en una sola idea: me gusta todo lo que eres, incluso lo que tú crees que es imperfecto, porque justamente eso te hace real.
+."></div>
+<button onclick="siguiente()">Siguiente ➜</button>
+</div>
+
+<div class="pagina">
+<h2>💕 Nuestros momentos 💕</h2>
+<div class="texto" data-texto="Michelle,
+
+En estos 2 meses contigo hay momentos que se me quedaron grabados, no por lo que hicimos exactamente, sino por cómo me hiciste sentir en cada uno de ellos.
+
+Recuerdo cuando estábamos juntos y todo se sentía tan natural, como si ya nos conociéramos de mucho antes. Las risas salían sin esfuerzo, y hasta el silencio no era incómodo, era tranquilo, como si bastara con estar cerca para que todo estuviera bien.
+
+También están esos pequeños instantes que quizá para otros no significan mucho, pero para mí sí: cuando me miras, cuando sonríes sin darte cuenta, cuando hablamos de cualquier cosa y el tiempo se va rápido sin que lo notemos.
+
+Uno de esos momentos que más valoro es cuando, sin decirlo, sentimos que estábamos bien así, juntos, sin necesidad de nada más. Ahí entendí que lo bonito no siempre es lo grande, sino lo sincero.
+
+Y hoy, al recordar nuestros momentos, solo puedo agradecerte por cada uno de ellos. Porque contigo, Michelle, hasta lo más simple se vuelve especial.
+."></div>
+<button onclick="siguiente()">Siguiente ➜</button>
+</div>
+
+<div class="pagina">
+<h2>🌸 Gracias 🌸</h2>
+<div class="texto" data-texto="Michelle,
+
+Gracias por estos 2 meses.
+
+Gracias por aparecer en mi vida y hacerla un poco más bonita sin siquiera intentarlo. Gracias por tu forma de ser, por tu risa, por tu mirada, por cada pequeño detalle que a veces ni tú notas, pero que a mí se me quedan grabados.
+
+Gracias por los momentos que hemos compartido, desde los más simples hasta los que sin planearlo se volvieron especiales. Por las conversaciones, por las risas, por los silencios tranquilos que no incomodan, sino que acompañan.
+
+Gracias también por tu paciencia, por tu manera de estar, por seguir aquí. No todo es perfecto, pero contigo todo se siente real.
+
+Y sobre todo, gracias por dejarme conocerte y por ser parte de estos 2 meses que para mí significan mucho más de lo que puedo explicar con palabras.
+
+Feliz 2 meses, Michelle.
+."></div>
+<button onclick="siguiente()">Siguiente ➜</button>
+</div>
+
+<div class="pagina">
+<h2>💖 Lo que siento 💖</h2>
+<div class="texto" data-texto="Michelle,
+
+No siempre sé cómo explicar bien lo que siento por ti, pero lo voy a intentar con sinceridad.
+
+Contigo siento algo que no es exagerado, pero sí profundo. Es esa tranquilidad de saber que estás ahí, y al mismo tiempo la emoción de cada mensaje, cada mirada, cada momento que compartimos. Me haces sentir bien de una forma que no siempre puedo describir con exactitud.
+
+A veces es algo simple, como pensar en ti y sonreír sin darme cuenta. O recordar nuestros momentos y sentir que todo vale la pena cuando estás cerca. No es solo gusto, es algo que va más allá de lo que esperaba sentir.
+
+También siento gratitud. Por cómo eres conmigo, por cómo me haces sentir, por lo que hemos construido en estos 2 meses. No es perfecto, pero es real, y eso es lo que más valoro.
+
+Y si lo resumo de la forma más honesta posible: me importas mucho, Michelle. Más de lo que las palabras alcanzan a decir.."></div>
+<button onclick="siguiente()">Siguiente ➜</button>
+</div>
+
+<div class="pagina">
+<div class="final">❤️</div>
+<h2>Final del libro</h2>
+<div class="texto" data-texto="Michelle,
+
+Hay algo en ti que me desordena el corazón de la mejor manera posible.
+
+Desde que llegaste a mi vida, todo se siente distinto. No porque el mundo haya cambiado, sino porque contigo aprendí a ver las cosas con otros ojos. Tu presencia tiene algo que me calma, que me ilumina, que me hace querer quedarme un poco más en cada momento.
+
+Me gustas en cada detalle: en tu forma de hablar, en cómo sonríes, en cómo sin darte cuenta haces que todo se sienta más bonito. Me gustas incluso en tus silencios, porque contigo el silencio no pesa, acompaña.
+
+No sé exactamente cómo explicar lo que siento, pero sé que es sincero. Es ese tipo de amor que no necesita exagerar para ser real, que se construye en lo simple: en una conversación, en una risa, en un “cuídate”, en un “te extraño”.
+
+Y si tuviera que decirte lo más importante, sería esto: me haces bien. Me haces querer ser mejor, me haces creer en lo bonito de las personas, y me haces sentir algo que no quiero perder.
+
+Michelle, no eres solo alguien especial para mí… eres alguien que se quedó en mi mente y en mi corazón sin pedir permiso. Y sinceramente, me gusta que sea así.
+
+Te quiero de una forma bonita, tranquila, pero muy real."></div>
+<button onclick="final()">Terminar</button>
+</div>
+
+</div>
+
+<!-- 💥 FINAL GIGANTE -->
+<div id="final">
+<h1>TE AMO MICHELLE ❤️</h1>
+<p>Siempre tú, siempre nosotros</p>
+</div>
+
+<script>
+
+let paginas=document.querySelectorAll(".pagina");
+let actual=0;
+
+/* 💌 ABRIR */
+function abrirLibro(){
+
+document.getElementById("musica").play();
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("libro").style.display="block";
+
+escribir(paginas[0].querySelector(".texto"));
+explosion();
+}
+
+/* ✍️ ESCRITURA */
+function escribir(el){
+
+let texto=el.dataset.texto;
+el.innerHTML="";
+let i=0;
+
+let intervalo=setInterval(()=>{
+
+el.innerHTML+=texto.charAt(i);
+i++;
+
+if(i>=texto.length){
+clearInterval(intervalo);
+}
+
+},20);
+
+}
+
+/* 📖 SIGUIENTE */
+function siguiente(){
+
+explosion();
+
+paginas[actual].classList.remove("activa");
+
+actual++;
+
+if(actual<paginas.length){
+
+paginas[actual].classList.add("activa");
+escribir(paginas[actual].querySelector(".texto"));
+}
+
+}
+
+/* 💥 FINAL */
+function final(){
+
+document.getElementById("libro").style.display="none";
+document.getElementById("final").style.display="flex";
+
+explosion();
+}
+
+/* 💖 EXPLOSIÓN */
+function explosion(){
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+h.className="corazon";
+h.innerHTML="❤️";
+
+h.style.left="50vw";
+h.style.top="50vh";
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(h);
+
+let x=(Math.random()-0.5)*1000;
+
+h.animate([
+{transform:"translate(0,0)",opacity:1},
+{transform:`translate(${x}px,-800px)`,opacity:0}
+],{
+duration:2000
+});
+
+setTimeout(()=>h.remove(),2000);
+}
+
+}
+
+/* 💖 LLUVIA */
+setInterval(()=>{
+
+let c=document.createElement("div");
+c.className="corazon";
+c.innerHTML="❤️";
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),8000);
+
+},300);
+
+</script>
+
+</body>
+</html>
